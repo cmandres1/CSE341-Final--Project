@@ -39,11 +39,15 @@ router.use('/suppliers', require('./suppliers'));
 
 // Home route
 router.get('/', (req, res) => {
+    let message = '<h1>Welcome to the Inventory Management API</h1>';
+    
     if (req.isAuthenticated()) {
-        res.send(`Logged in as ${req.user.displayName || req.user.username}`);
+        message += `<p>Logged in as ${req.user.displayName || req.user.username}</p>`;
     } else {
-        res.send('Logged Out. <a href="/login">Login</a>');
+        message += '<p>Logged Out. <a href="/login">Login</a></p>';
     }
+    
+    res.send(message);
 });
 
 // Catch-all for unknown routes

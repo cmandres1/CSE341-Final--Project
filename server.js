@@ -72,14 +72,19 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-// Home route
+// Home route 
 app.get('/', (req, res) => {
     console.log('Current session:', req.session);
+    
+    let message = '<h1>Welcome to the Inventory Management API</h1>';
+    
     if (req.session.user) {
-        res.send(`Logged in as ${req.session.user.displayName}`);
+        message += `<p>Logged in as ${req.session.user.displayName}</p>`;
     } else {
-        res.send('Logged Out. <a href="/login">Login</a>');
+        message += '<p>Logged Out. <a href="/login">Login</a></p>';
     }
+    
+    res.send(message);
 });
 
 // GitHub authentication callback

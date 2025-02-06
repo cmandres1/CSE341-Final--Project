@@ -5,10 +5,10 @@
     "description": "Inventory Management API",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-final-project-ia5o.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/users/": {
